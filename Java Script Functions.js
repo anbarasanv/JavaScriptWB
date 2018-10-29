@@ -85,4 +85,22 @@ s(26);
 console.log(obj); // { "name": "Anbarasan", "age": 26 }
 
 
+//A closure can not only access the variables defined in its outer function but also the arguments of the outer function.
+//A closure can also access the variables of its outer function even after the function has returned. 
+//This allows the returned function to maintain access to all the resources of the outer function.
+
+
+function outer(){
+  name = 'Anbarasan';
+  return function(greet){
+    console.log(greet+" "+name+"!");
+  }
+}
+//Without variable creation
+outer()("Hi");
+
+//With variable creation
+greet = outer();
+greet("Hello")
+
 */
