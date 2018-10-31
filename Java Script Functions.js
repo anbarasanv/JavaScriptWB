@@ -104,3 +104,168 @@ greet = outer();
 greet("Hello")
 
 */
+//functions global scope vs local scope
+//example:1 
+/*
+let name = 'Anbarasan'
+function fnfunction(){
+  name = 'Anba'
+  console.log(name)
+}
+console.log(name);//output: Anbarasan
+fnfunction(); //output: Anba
+console.log(name); //output: Anba
+*/
+//exmaple:2 if do not declare variable as var, let or const 
+//It will automatically become global variable 
+/*
+function fncheck(){
+  age = 10;
+  console.log(age)
+}
+fncheck();
+console.log(age);
+*/
+//why should we use let instead var?
+/*
+var  variable = 'Apple'; 
+{
+  var variable = 'Mango';
+}
+console.log(variable) //output: Mango 
+// above we use let output will be: Apple
+*/
+
+//setTimeout Variables are Executed in the Global Scope
+//Any variable declared without the var keyword will be a global variable anyway
+/*
+var Avar = 10, Bvar = 20;
+var  myobj = {
+  Avar: 3,
+  Bavar: 4,
+  calcfn : function(){
+    setTimeout(function(){console.log(this.Avar*this.Bvar)},200);
+  }
+}
+myobj.calcfn();//output: 200
+*/
+
+/*
+//Function Declaration Overrides Variable Declaration When Hoisted
+var name;
+function name(){
+  console.log("NaN");
+}
+console.log(typeof name);
+
+//variable assignment overrides the function declaration
+var fname = "Anbarasan"
+
+function fname(){
+  console.log("NaN");
+}
+console.log(typeof fname);
+*/
+/*
+//Example 1: Basic “short circuting” with || (Logical OR)
+//This will avoid if condition
+function fncheck(title){
+  title = title || "untitled"
+  console.log(title);
+}
+fncheck("Welcome!");
+
+*/
+
+/*
+//Example 1: Basic “short circuting” with || Logical (||) and (&&)
+
+let username = ""
+function login(uname){
+  console.log("Welcome! "+uname)
+}
+function signup(){
+  console.log("User Name does not exists please signup!")
+}
+function validator(username){
+  return username
+}
+validator(username) ? login(username) : signup();
+
+*/
+
+/*
+// All the code is wrapped in the IIFE
+(function(){
+  let name = "Anba"
+  function init(n){
+     callfn(n);
+  }
+  
+  function callfn(fname){
+    docall(fname);
+  }
+  
+  function docall(aname){
+    console.log(aname)
+  }
+  
+  init(name);
+
+})();
+*/
+//Power of conditional scripting
+/*
+(function(fname){
+  uname = [], named = ['A', 'B',]
+  fname ?
+  (function(fn){
+    let filename = fn.toLocaleLowerCase().replace(' ','_')+".txt";
+    named.push(filename)
+    console.log(filename)
+    
+  })(fname)
+  
+  :
+  
+  (function(fn){
+    let filename = named.length + "_unamed.txt"
+    uname.push(filename);
+    console.log(filename);
+  })(fname)
+    
+})("");
+
+*/
+
+// closure stores variable reference of the outer Function
+/*
+function exclosure(){
+  let voterID = 1990;
+  
+  return {
+    getID: function(){
+      console.log(voterID);
+    },
+    setID: function(value){
+     voterID = value;
+    }
+  }
+}
+
+let variable = exclosure();
+variable.getID()
+variable.setID(1880)
+variable.getID()
+*/
+
+
+
+
+
+
+
+
+
+
+
